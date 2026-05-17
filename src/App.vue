@@ -1,32 +1,38 @@
+<!-- src/App.vue -->
 <template>
   <div class="app-layout">
     <header class="container">
       <nav class="nav-bar">
         <div class="logo">Predony.dev</div>
         <ul class="nav-links">
-          <li><a href="#about">Über mich</a></li>
           <li><a href="#projects">Projekte</a></li>
-          <li><a href="#contact">Kontakt</a></li>
+          <li><a href="#about">Über mich</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section class="container section-padding">
-        <h1>Hi, ich bin ein Vue & TypeScript Entwickler.</h1>
-        <p style="color: var(--text-secondary); margin-top: 10px;">
-          Willkommen auf meinem Portfolio. Hier entsteht gerade etwas Großes.
+      <!-- Hero Section -->
+      <section class="container hero-section">
+        <h1>Hi, ich bin ein Vue & TypeScript Frontend Entwickler.</h1>
+        <p class="hero-p">
+          Ich spezialisiere mich auf den Bau von performanten, typsicheren Web-Applikationen im Enterprise-Umfeld. Erfahren im Refactoring von Legacy-Code und der Optimierung moderner Architekturen mit Vue 3 und Vite.
         </p>
+        <a href="#projects" class="cta-button">Projekte ansehen</a>
       </section>
+
+      <!-- NEU: Projekte Sektion -->
+      <Projects />
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
-// Hier kommt später unsere Logik rein
+import Projects from './components/Projects.vue';
 </script>
 
 <style scoped>
+/* Navigation */
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -46,9 +52,38 @@
   gap: 20px;
 }
 
+/* Hero Section */
+.hero-section {
+  padding: 100px 0 60px 0;
+}
+
 h1 {
-  font-size: 2.5rem;
-  max-width: 600px;
+  font-size: 3rem;
+  max-width: 700px;
   line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-p {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--bg-primary);
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.cta-button:hover {
+  background-color: var(--accent-hover);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
 }
 </style>
